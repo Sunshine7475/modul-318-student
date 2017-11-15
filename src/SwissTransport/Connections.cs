@@ -1,24 +1,43 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System;
 
 namespace SwissTransport
 {
     public class Connections
     {
         [JsonProperty("connections")]
-        public List<Connection> ConnectionList { get; set; } 
+        public List<Connection> ConnectionList { get; set; }
     }
 
     public class Connection
     {
         [JsonProperty("from")]
-        public ConnectionPoint From  { get; set; }
+        public ConnectionPoint From { get; set; }
 
         [JsonProperty("to")]
         public ConnectionPoint To { get; set; }
 
         [JsonProperty("duration")]
-        public string Duration { get; set; }
+        public string Duration
+        {
+            get
+            {
+                DateTime result;
+                DateTime.TryParse(Duration, out result);
+               return result.ToString("HH:mm");
+            }
+            set
+            {
+                Duration = value;
+            }
+
+        }
+
+        public override string ToString()
+        {
+            return From.ToString();
+        }
     }
 
     public class ConnectionPoint
@@ -39,5 +58,10 @@ namespace SwissTransport
         public string Platform { get; set; }
 
         public string RealtimeAvailability { get; set; }
+
+        public override string ToString()
+        {
+            return Station.ToString();
+        }
     }
 }

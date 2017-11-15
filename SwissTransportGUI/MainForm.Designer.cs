@@ -49,7 +49,6 @@
             this.txtStandort.Name = "txtStandort";
             this.txtStandort.Size = new System.Drawing.Size(307, 26);
             this.txtStandort.TabIndex = 0;
-            this.txtStandort.TextChanged += new System.EventHandler(this.txtStandort_TextChanged);
             // 
             // btnSuchen
             // 
@@ -89,7 +88,6 @@
             this.txtEndstation.Name = "txtEndstation";
             this.txtEndstation.Size = new System.Drawing.Size(307, 26);
             this.txtEndstation.TabIndex = 1;
-            this.txtEndstation.TextChanged += new System.EventHandler(this.txtEndstation_TextChanged);
             // 
             // dgvVerbindungen
             // 
