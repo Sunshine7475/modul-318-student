@@ -22,7 +22,8 @@ namespace SwissTransport
         public ConnectionPoint To { get; set; }
 
         [JsonProperty("duration")]
-        public string Duration
+        public string Duration { get; set; } 
+        /*public string Duration
         {
             get
             {
@@ -36,6 +37,7 @@ namespace SwissTransport
             }
 
         }
+        */
 
         public override string ToString()
         {

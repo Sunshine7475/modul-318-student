@@ -31,6 +31,7 @@ namespace SwissTransport
             if (responseStream != null)
             {
                 var readToEnd = new StreamReader(responseStream).ReadToEnd();
+
                 var stationboard =
                     JsonConvert.DeserializeObject<StationBoardRoot>(readToEnd);
                 return stationboard;

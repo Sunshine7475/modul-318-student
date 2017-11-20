@@ -42,9 +42,9 @@
             this.tbVerbindungSuchen = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbAbfahrtstafel = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtZeitpunktAb = new System.Windows.Forms.TextBox();
+            this.dtpZeitpunktAb = new System.Windows.Forms.DateTimePicker();
+            this.lZeitpunktAb = new System.Windows.Forms.Label();
             this.cbOrt = new System.Windows.Forms.ComboBox();
             this.lOrt = new System.Windows.Forms.Label();
             this.lVerbindungen = new System.Windows.Forms.Label();
@@ -122,7 +122,7 @@
             this.cbEndstation.Name = "cbEndstation";
             this.cbEndstation.Size = new System.Drawing.Size(307, 28);
             this.cbEndstation.TabIndex = 2;
-            this.cbEndstation.SelectedIndexChanged += new System.EventHandler(this.cbEndstation_SelectedIndexChanged);
+            this.cbEndstation.DropDown += new System.EventHandler(this.cbEndstation_DropDown);
             // 
             // txtZeitpunkt
             // 
@@ -131,16 +131,17 @@
             this.txtZeitpunkt.Name = "txtZeitpunkt";
             this.txtZeitpunkt.Size = new System.Drawing.Size(100, 26);
             this.txtZeitpunkt.TabIndex = 9;
+            this.txtZeitpunkt.Text = "12:00";
             // 
             // cbStandort
             // 
             this.cbStandort.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbStandort.FormattingEnabled = true;
-            this.cbStandort.Location = new System.Drawing.Point(150, 50);
+            this.cbStandort.Location = new System.Drawing.Point(150, 55);
             this.cbStandort.Name = "cbStandort";
             this.cbStandort.Size = new System.Drawing.Size(307, 28);
             this.cbStandort.TabIndex = 0;
-            this.cbStandort.SelectedIndexChanged += new System.EventHandler(this.cbStandort_SelectedIndexChanged);
+            this.cbStandort.DropDown += new System.EventHandler(this.cbStandort_DropDown);
             // 
             // dtpZeitpunkt
             // 
@@ -195,9 +196,9 @@
             // 
             // gbAbfahrtstafel
             // 
-            this.gbAbfahrtstafel.Controls.Add(this.textBox1);
-            this.gbAbfahrtstafel.Controls.Add(this.dateTimePicker1);
-            this.gbAbfahrtstafel.Controls.Add(this.label1);
+            this.gbAbfahrtstafel.Controls.Add(this.txtZeitpunktAb);
+            this.gbAbfahrtstafel.Controls.Add(this.dtpZeitpunktAb);
+            this.gbAbfahrtstafel.Controls.Add(this.lZeitpunktAb);
             this.gbAbfahrtstafel.Controls.Add(this.cbOrt);
             this.gbAbfahrtstafel.Controls.Add(this.lOrt);
             this.gbAbfahrtstafel.Location = new System.Drawing.Point(56, 30);
@@ -207,31 +208,32 @@
             this.gbAbfahrtstafel.TabStop = false;
             this.gbAbfahrtstafel.Text = "Abfahrtstafel";
             // 
-            // textBox1
+            // txtZeitpunktAb
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(412, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(72, 26);
-            this.textBox1.TabIndex = 12;
+            this.txtZeitpunktAb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtZeitpunktAb.Location = new System.Drawing.Point(412, 99);
+            this.txtZeitpunktAb.Name = "txtZeitpunktAb";
+            this.txtZeitpunktAb.Size = new System.Drawing.Size(72, 26);
+            this.txtZeitpunktAb.TabIndex = 12;
+            this.txtZeitpunktAb.Text = "12:00";
             // 
-            // dateTimePicker1
+            // dtpZeitpunktAb
             // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(134, 99);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(272, 26);
-            this.dateTimePicker1.TabIndex = 11;
+            this.dtpZeitpunktAb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpZeitpunktAb.Location = new System.Drawing.Point(134, 99);
+            this.dtpZeitpunktAb.Name = "dtpZeitpunktAb";
+            this.dtpZeitpunktAb.Size = new System.Drawing.Size(272, 26);
+            this.dtpZeitpunktAb.TabIndex = 11;
             // 
-            // label1
+            // lZeitpunktAb
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 99);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 20);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Zeitpunkt";
+            this.lZeitpunktAb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lZeitpunktAb.AutoSize = true;
+            this.lZeitpunktAb.Location = new System.Drawing.Point(16, 99);
+            this.lZeitpunktAb.Name = "lZeitpunktAb";
+            this.lZeitpunktAb.Size = new System.Drawing.Size(76, 20);
+            this.lZeitpunktAb.TabIndex = 13;
+            this.lZeitpunktAb.Text = "Zeitpunkt";
             // 
             // cbOrt
             // 
@@ -303,9 +305,9 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label lVerbindungen;
         private System.Windows.Forms.GroupBox gbAbfahrtstafel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtZeitpunktAb;
+        private System.Windows.Forms.DateTimePicker dtpZeitpunktAb;
+        private System.Windows.Forms.Label lZeitpunktAb;
         private System.Windows.Forms.ComboBox cbOrt;
         private System.Windows.Forms.Label lOrt;
     }
