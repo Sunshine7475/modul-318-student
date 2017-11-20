@@ -28,7 +28,7 @@ namespace SwissTransport
             {
                 DateTime result;
                 DateTime.TryParse(_duration, out result);
-               return result.ToString("HH:mm");
+               return result.ToString("hh:mm:ss");
             }
             set
             {

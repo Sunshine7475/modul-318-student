@@ -34,18 +34,26 @@
             this.dgvVerbindungen = new System.Windows.Forms.DataGridView();
             this.gbEingabe = new System.Windows.Forms.GroupBox();
             this.cbEndstation = new System.Windows.Forms.ComboBox();
-            this.cbStandort = new System.Windows.Forms.ComboBox();
             this.txtZeitpunkt = new System.Windows.Forms.TextBox();
+            this.cbStandort = new System.Windows.Forms.ComboBox();
             this.dtpZeitpunkt = new System.Windows.Forms.DateTimePicker();
             this.lZeitpunkt = new System.Windows.Forms.Label();
             this.tcVerbindungen = new System.Windows.Forms.TabControl();
             this.tbVerbindungSuchen = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.gbAbfahrtstafel = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbOrt = new System.Windows.Forms.ComboBox();
+            this.lOrt = new System.Windows.Forms.Label();
             this.lVerbindungen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerbindungen)).BeginInit();
             this.gbEingabe.SuspendLayout();
             this.tcVerbindungen.SuspendLayout();
             this.tbVerbindungSuchen.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.gbAbfahrtstafel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSuchen
@@ -93,8 +101,8 @@
             // gbEingabe
             // 
             this.gbEingabe.Controls.Add(this.cbEndstation);
-            this.gbEingabe.Controls.Add(this.cbStandort);
             this.gbEingabe.Controls.Add(this.txtZeitpunkt);
+            this.gbEingabe.Controls.Add(this.cbStandort);
             this.gbEingabe.Controls.Add(this.dtpZeitpunkt);
             this.gbEingabe.Controls.Add(this.lZeitpunkt);
             this.gbEingabe.Controls.Add(this.lStandort);
@@ -116,6 +124,14 @@
             this.cbEndstation.TabIndex = 2;
             this.cbEndstation.SelectedIndexChanged += new System.EventHandler(this.cbEndstation_SelectedIndexChanged);
             // 
+            // txtZeitpunkt
+            // 
+            this.txtZeitpunkt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtZeitpunkt.Location = new System.Drawing.Point(428, 150);
+            this.txtZeitpunkt.Name = "txtZeitpunkt";
+            this.txtZeitpunkt.Size = new System.Drawing.Size(100, 26);
+            this.txtZeitpunkt.TabIndex = 9;
+            // 
             // cbStandort
             // 
             this.cbStandort.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -126,21 +142,14 @@
             this.cbStandort.TabIndex = 0;
             this.cbStandort.SelectedIndexChanged += new System.EventHandler(this.cbStandort_SelectedIndexChanged);
             // 
-            // txtZeitpunkt
-            // 
-            this.txtZeitpunkt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtZeitpunkt.Location = new System.Drawing.Point(425, 150);
-            this.txtZeitpunkt.Name = "txtZeitpunkt";
-            this.txtZeitpunkt.Size = new System.Drawing.Size(100, 26);
-            this.txtZeitpunkt.TabIndex = 9;
-            // 
             // dtpZeitpunkt
             // 
             this.dtpZeitpunkt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpZeitpunkt.Location = new System.Drawing.Point(150, 150);
             this.dtpZeitpunkt.Name = "dtpZeitpunkt";
-            this.dtpZeitpunkt.Size = new System.Drawing.Size(269, 26);
+            this.dtpZeitpunkt.Size = new System.Drawing.Size(272, 26);
             this.dtpZeitpunkt.TabIndex = 8;
+            this.dtpZeitpunkt.Value = new System.DateTime(2017, 11, 20, 11, 30, 24, 0);
             // 
             // lZeitpunkt
             // 
@@ -175,6 +184,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.gbAbfahrtstafel);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -182,6 +192,62 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Abfahrtstafel";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // gbAbfahrtstafel
+            // 
+            this.gbAbfahrtstafel.Controls.Add(this.textBox1);
+            this.gbAbfahrtstafel.Controls.Add(this.dateTimePicker1);
+            this.gbAbfahrtstafel.Controls.Add(this.label1);
+            this.gbAbfahrtstafel.Controls.Add(this.cbOrt);
+            this.gbAbfahrtstafel.Controls.Add(this.lOrt);
+            this.gbAbfahrtstafel.Location = new System.Drawing.Point(56, 30);
+            this.gbAbfahrtstafel.Name = "gbAbfahrtstafel";
+            this.gbAbfahrtstafel.Size = new System.Drawing.Size(528, 190);
+            this.gbAbfahrtstafel.TabIndex = 1;
+            this.gbAbfahrtstafel.TabStop = false;
+            this.gbAbfahrtstafel.Text = "Abfahrtstafel";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(412, 99);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(72, 26);
+            this.textBox1.TabIndex = 12;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(134, 99);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(272, 26);
+            this.dateTimePicker1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 20);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Zeitpunkt";
+            // 
+            // cbOrt
+            // 
+            this.cbOrt.FormattingEnabled = true;
+            this.cbOrt.Location = new System.Drawing.Point(134, 55);
+            this.cbOrt.Name = "cbOrt";
+            this.cbOrt.Size = new System.Drawing.Size(239, 28);
+            this.cbOrt.TabIndex = 1;
+            // 
+            // lOrt
+            // 
+            this.lOrt.Location = new System.Drawing.Point(50, 60);
+            this.lOrt.Name = "lOrt";
+            this.lOrt.Size = new System.Drawing.Size(100, 23);
+            this.lOrt.TabIndex = 0;
+            this.lOrt.Text = "Ort";
             // 
             // lVerbindungen
             // 
@@ -207,11 +273,15 @@
             this.Controls.Add(this.btnSuchen);
             this.Name = "MainForm";
             this.Text = "SwissTransport";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerbindungen)).EndInit();
             this.gbEingabe.ResumeLayout(false);
             this.gbEingabe.PerformLayout();
             this.tcVerbindungen.ResumeLayout(false);
             this.tbVerbindungSuchen.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.gbAbfahrtstafel.ResumeLayout(false);
+            this.gbAbfahrtstafel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,6 +302,12 @@
         private System.Windows.Forms.TabPage tbVerbindungSuchen;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label lVerbindungen;
+        private System.Windows.Forms.GroupBox gbAbfahrtstafel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbOrt;
+        private System.Windows.Forms.Label lOrt;
     }
 }
 
