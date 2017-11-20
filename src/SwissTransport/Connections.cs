@@ -12,6 +12,9 @@ namespace SwissTransport
 
     public class Connection
     {
+        string _duration = "";
+
+
         [JsonProperty("from")]
         public ConnectionPoint From { get; set; }
 
@@ -24,12 +27,12 @@ namespace SwissTransport
             get
             {
                 DateTime result;
-                DateTime.TryParse(Duration, out result);
+                DateTime.TryParse(_duration, out result);
                return result.ToString("HH:mm");
             }
             set
             {
-                Duration = value;
+                _duration = value;
             }
 
         }

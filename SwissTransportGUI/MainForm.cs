@@ -13,6 +13,8 @@ namespace SwissTransportGUI
 {
     public partial class MainForm : Form
     {
+        Transport _trans = new Transport();
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,11 +22,21 @@ namespace SwissTransportGUI
 
         private void btnSuchen_Click(object sender, EventArgs e)
         {
-            Transport _trans = new Transport();
-            dgvVerbindungen.DataSource = _trans.GetConnections(txtStandort.Text, txtEndstation.Text).ConnectionList;
-
+            
+            dgvVerbindungen.DataSource = _trans.GetConnections(cbStandort.Text, cbEndstation.Text).ConnectionList;
+         
 
         }
 
+
+        private void cbStandort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _trans.GetStations(cbStandort.Text);
+        }
+
+        private void cbEndstation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _trans.GetStations(cbEndstation.Text);
+        }
     }
 }
