@@ -124,6 +124,7 @@
             this.cbEndstation.Size = new System.Drawing.Size(307, 28);
             this.cbEndstation.TabIndex = 2;
             this.cbEndstation.DropDown += new System.EventHandler(this.cbEndstation_DropDown);
+            this.cbEndstation.TextChanged += new System.EventHandler(this.cbEndstation_TextChanged);
             this.cbEndstation.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbEndstation_KeyPress);
             // 
             // txtZeitpunkt
@@ -144,6 +145,7 @@
             this.cbStandort.Size = new System.Drawing.Size(307, 28);
             this.cbStandort.TabIndex = 0;
             this.cbStandort.DropDown += new System.EventHandler(this.cbStandort_DropDown);
+            this.cbStandort.TextChanged += new System.EventHandler(this.cbStandort_TextChanged);
             // 
             // dtpZeitpunkt
             // 
@@ -246,6 +248,7 @@
             this.cbOrt.Size = new System.Drawing.Size(239, 28);
             this.cbOrt.TabIndex = 1;
             this.cbOrt.DropDown += new System.EventHandler(this.cbOrt_DropDown);
+            this.cbOrt.TextChanged += new System.EventHandler(this.cbOrt_TextChanged);
             this.cbOrt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbOrt_KeyPress);
             // 
             // lOrt
