@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SwissTransport;
+using System.Globalization;
 
 namespace SwissTransportGUI
 {
     public partial class MainForm : Form
     {
         Transport _trans = new Transport();
+        DataTable _dtConnections = new DataTable();
 
         public MainForm()
         {
@@ -23,29 +25,52 @@ namespace SwissTransportGUI
 
         private void btnSuchen_Click(object sender, EventArgs e)
         {
-            //DataTAble erstellen
-            DataTable dtConnections = new DataTable();
-            dtConnections.Columns.Add("Abfahrtszeit");
-            dtConnections.Columns.Add("AbfahrtsOrt");
-            dtConnections.Columns.Add("Zielort");
-            dtConnections.Columns.Add("Zielzeit");
-
-            //Verbindungen auslesen
-            Connections stb = _trans.GetConnections(cbStandort.Text, cbEndstation.Text);
-
-            //Verbindungen in DataTAble speichern
-            foreach (Connection station in stb.ConnectionList)
+            if(tcVerbindungen.SelectedIndex == 0)
             {
-                dtConnections.Rows.Add(ConvertDateToTime(station.From.Departure), station.From.Station.Name, station.To.Station.Name,
-                   ConvertDateToTime(station.To.Arrival));
+                _dtConnections.Columns.Add("Abfahrtszeit");
+                _dtConnections.Columns.Add("Abfahrtsort");
+                _dtConnections.Columns.Add("Zielort");
+                _dtConnections.Columns.Add("Ankunftszeit");
+                _dtConnections.Columns.Add("Dauer");
+
+                Connections _stb = _trans.GetConnections(cbStandort.Text, cbEndstation.Text);
+           
+                foreach (Connection _station in _stb.ConnectionList)
+                {
+                    _dtConnections.Rows.Add(Convert.ToDateTime(_station.From.Departure), _station.From.Station.Name, _station.To.Station.Name,
+                       Convert.ToDateTime(_station.To.Arrival), replaceString(_station.Duration));
+                }
+           
+                dgvVerbindungen.DataSource = _dtConnections;
+             
             }
 
-            //DatatAble in DataGrdid hinzufühen
-            dgvVerbindungen.DataSource = dtConnections;
+            else
+            {
+                _dtConnections.Columns.Add("Abfahrtszeit");
+                _dtConnections.Columns.Add("Abfahrtsort");
+                _dtConnections.Columns.Add("Zielort");
 
-            //dgvVerbindungen.DataSource = _trans.GetConnections(cbStandort.Text, cbEndstation.Text).ConnectionList;
-            // dgvVerbindungen.DataSource = _trans.GetStationBoard(cbOrt.Text, "");
+                Stations _station = _trans.GetStations(cbOrt.Text);
+                string _id = _station.StationList[0].Id;
+                StationBoardRoot _stb = _trans.GetStationBoard(cbOrt.Text, _id);
 
+                foreach (StationBoard _stbo in _stb.Entries)
+                {
+                    _dtConnections.Rows.Add(_stbo.Stop.Departure,cbOrt.Text, _stbo.To);
+                }
+                
+                dgvVerbindungen.DataSource = _dtConnections;
+            }
+           
+        }
+
+        
+
+        private string replaceString(string anfang)
+        {
+            string _resultat = anfang.Replace("00d", "");
+            return _resultat;
         }
 
         private void cbStandort_DropDown(object sender, EventArgs e)
@@ -81,6 +106,20 @@ namespace SwissTransportGUI
 
             this.ActiveControl = cbStandort;
 
+        }
+
+        private void tcVerbindungen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _dtConnections.Columns.Clear();
+            dgvVerbindungen.DataSource = null;
+            if (tcVerbindungen.SelectedIndex == 0)
+            {
+                this.ActiveControl = cbStandort;
+            }
+            else
+            {
+                this.ActiveControl = cbOrt;
+            }
         }
     }
 }

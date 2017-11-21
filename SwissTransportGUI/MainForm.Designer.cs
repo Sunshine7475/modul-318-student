@@ -39,8 +39,8 @@
             this.dtpZeitpunkt = new System.Windows.Forms.DateTimePicker();
             this.lZeitpunkt = new System.Windows.Forms.Label();
             this.tcVerbindungen = new System.Windows.Forms.TabControl();
-            this.tbVerbindungSuchen = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tpVerbindungSuchen = new System.Windows.Forms.TabPage();
+            this.tpAbfahtstafel = new System.Windows.Forms.TabPage();
             this.gbAbfahrtstafel = new System.Windows.Forms.GroupBox();
             this.txtZeitpunktAb = new System.Windows.Forms.TextBox();
             this.dtpZeitpunktAb = new System.Windows.Forms.DateTimePicker();
@@ -51,15 +51,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVerbindungen)).BeginInit();
             this.gbEingabe.SuspendLayout();
             this.tcVerbindungen.SuspendLayout();
-            this.tbVerbindungSuchen.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tpVerbindungSuchen.SuspendLayout();
+            this.tpAbfahtstafel.SuspendLayout();
             this.gbAbfahrtstafel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSuchen
             // 
             this.btnSuchen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSuchen.Location = new System.Drawing.Point(716, 598);
+            this.btnSuchen.Location = new System.Drawing.Point(1071, 776);
             this.btnSuchen.Name = "btnSuchen";
             this.btnSuchen.Size = new System.Drawing.Size(98, 42);
             this.btnSuchen.TabIndex = 4;
@@ -90,11 +90,12 @@
             // dgvVerbindungen
             // 
             this.dgvVerbindungen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvVerbindungen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvVerbindungen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVerbindungen.Location = new System.Drawing.Point(24, 409);
+            this.dgvVerbindungen.Location = new System.Drawing.Point(24, 448);
             this.dgvVerbindungen.Name = "dgvVerbindungen";
             this.dgvVerbindungen.RowTemplate.Height = 28;
-            this.dgvVerbindungen.Size = new System.Drawing.Size(764, 150);
+            this.dgvVerbindungen.Size = new System.Drawing.Size(1145, 256);
             this.dgvVerbindungen.TabIndex = 10;
             this.dgvVerbindungen.TabStop = false;
             // 
@@ -164,35 +165,36 @@
             // 
             // tcVerbindungen
             // 
-            this.tcVerbindungen.Controls.Add(this.tbVerbindungSuchen);
-            this.tcVerbindungen.Controls.Add(this.tabPage2);
+            this.tcVerbindungen.Controls.Add(this.tpVerbindungSuchen);
+            this.tcVerbindungen.Controls.Add(this.tpAbfahtstafel);
             this.tcVerbindungen.Location = new System.Drawing.Point(24, 26);
             this.tcVerbindungen.Name = "tcVerbindungen";
             this.tcVerbindungen.SelectedIndex = 0;
             this.tcVerbindungen.Size = new System.Drawing.Size(618, 291);
             this.tcVerbindungen.TabIndex = 12;
+            this.tcVerbindungen.SelectedIndexChanged += new System.EventHandler(this.tcVerbindungen_SelectedIndexChanged);
             // 
-            // tbVerbindungSuchen
+            // tpVerbindungSuchen
             // 
-            this.tbVerbindungSuchen.Controls.Add(this.gbEingabe);
-            this.tbVerbindungSuchen.Location = new System.Drawing.Point(4, 29);
-            this.tbVerbindungSuchen.Name = "tbVerbindungSuchen";
-            this.tbVerbindungSuchen.Padding = new System.Windows.Forms.Padding(3);
-            this.tbVerbindungSuchen.Size = new System.Drawing.Size(610, 258);
-            this.tbVerbindungSuchen.TabIndex = 0;
-            this.tbVerbindungSuchen.Text = "Verbindung suchen";
-            this.tbVerbindungSuchen.UseVisualStyleBackColor = true;
+            this.tpVerbindungSuchen.Controls.Add(this.gbEingabe);
+            this.tpVerbindungSuchen.Location = new System.Drawing.Point(4, 29);
+            this.tpVerbindungSuchen.Name = "tpVerbindungSuchen";
+            this.tpVerbindungSuchen.Padding = new System.Windows.Forms.Padding(3);
+            this.tpVerbindungSuchen.Size = new System.Drawing.Size(610, 258);
+            this.tpVerbindungSuchen.TabIndex = 0;
+            this.tpVerbindungSuchen.Text = "Verbindung suchen";
+            this.tpVerbindungSuchen.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tpAbfahtstafel
             // 
-            this.tabPage2.Controls.Add(this.gbAbfahrtstafel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(610, 258);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Abfahrtstafel";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tpAbfahtstafel.Controls.Add(this.gbAbfahrtstafel);
+            this.tpAbfahtstafel.Location = new System.Drawing.Point(4, 29);
+            this.tpAbfahtstafel.Name = "tpAbfahtstafel";
+            this.tpAbfahtstafel.Padding = new System.Windows.Forms.Padding(3);
+            this.tpAbfahtstafel.Size = new System.Drawing.Size(610, 258);
+            this.tpAbfahtstafel.TabIndex = 1;
+            this.tpAbfahtstafel.Text = "Abfahrtstafel";
+            this.tpAbfahtstafel.UseVisualStyleBackColor = true;
             // 
             // gbAbfahrtstafel
             // 
@@ -257,7 +259,7 @@
             this.lVerbindungen.AutoSize = true;
             this.lVerbindungen.Enabled = false;
             this.lVerbindungen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lVerbindungen.Location = new System.Drawing.Point(23, 367);
+            this.lVerbindungen.Location = new System.Drawing.Point(23, 406);
             this.lVerbindungen.Name = "lVerbindungen";
             this.lVerbindungen.Size = new System.Drawing.Size(141, 25);
             this.lVerbindungen.TabIndex = 13;
@@ -268,7 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 669);
+            this.ClientSize = new System.Drawing.Size(1201, 847);
             this.Controls.Add(this.lVerbindungen);
             this.Controls.Add(this.tcVerbindungen);
             this.Controls.Add(this.dgvVerbindungen);
@@ -280,8 +282,8 @@
             this.gbEingabe.ResumeLayout(false);
             this.gbEingabe.PerformLayout();
             this.tcVerbindungen.ResumeLayout(false);
-            this.tbVerbindungSuchen.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
+            this.tpVerbindungSuchen.ResumeLayout(false);
+            this.tpAbfahtstafel.ResumeLayout(false);
             this.gbAbfahrtstafel.ResumeLayout(false);
             this.gbAbfahrtstafel.PerformLayout();
             this.ResumeLayout(false);
@@ -301,8 +303,8 @@
         private System.Windows.Forms.ComboBox cbStandort;
         private System.Windows.Forms.ComboBox cbEndstation;
         private System.Windows.Forms.TabControl tcVerbindungen;
-        private System.Windows.Forms.TabPage tbVerbindungSuchen;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tpVerbindungSuchen;
+        private System.Windows.Forms.TabPage tpAbfahtstafel;
         private System.Windows.Forms.Label lVerbindungen;
         private System.Windows.Forms.GroupBox gbAbfahrtstafel;
         private System.Windows.Forms.TextBox txtZeitpunktAb;
