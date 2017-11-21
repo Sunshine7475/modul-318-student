@@ -23,21 +23,6 @@ namespace SwissTransport
 
         [JsonProperty("duration")]
         public string Duration { get; set; } 
-        /*public string Duration
-        {
-            get
-            {
-                DateTime result;
-                DateTime.TryParse(_duration, out result);
-               return result.ToString("hh:mm:ss");
-            }
-            set
-            {
-                _duration = value;
-            }
-
-        }
-        */
 
         public override string ToString()
         {
