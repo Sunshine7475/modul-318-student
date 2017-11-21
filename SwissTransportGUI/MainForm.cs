@@ -19,8 +19,7 @@ namespace SwissTransportGUI
 
         public MainForm()
         {
-            InitializeComponent();
-
+           InitializeComponent();           
         }
 
         private void btnSuchen_Click(object sender, EventArgs e)
@@ -100,12 +99,13 @@ namespace SwissTransportGUI
                 string stationName = station.Name;
                 _cbo.Items.Add(stationName);
             }
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
             this.ActiveControl = cbStandort;
+            btnSuchen.Enabled = false;
 
         }
 
@@ -120,6 +120,29 @@ namespace SwissTransportGUI
             else
             {
                 this.ActiveControl = cbOrt;
+            }
+        }
+
+        private void cbEndstation_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cbStandort != null && cbEndstation != null)
+            {
+                btnSuchen.Enabled = true;
+
+            }
+        }
+
+        private void cbOrt_DropDown(object sender, EventArgs e)
+        {
+            SearchAndFillComboBox(cbEndstation);
+        }
+
+        private void cbOrt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (cbOrt != null)
+            {
+                btnSuchen.Enabled = true;
+
             }
         }
     }
