@@ -25,7 +25,9 @@ namespace SwissTransportGUI
 
         private void btnSuchen_Click(object sender, EventArgs e)
         {
-            if(tcVerbindungen.SelectedIndex == 0)
+            _dtConnections = new DataTable();
+
+            if (tcVerbindungen.SelectedIndex == 0)
             {
                 _dtConnections.Columns.Add("Abfahrtszeit");
                 _dtConnections.Columns.Add("Abfahrtsort");
@@ -62,10 +64,10 @@ namespace SwissTransportGUI
                 
                 dgvVerbindungen.DataSource = _dtConnections;
             }
+
            
         }
 
-        
 
         private string replaceString(string anfang)
         {
@@ -87,11 +89,10 @@ namespace SwissTransportGUI
         private void SearchAndFillComboBox(ComboBox _cbo)
         {
             _cbo.Items.Clear();
-            Transport t = new Transport();
 
             string searchCrit = _cbo.Text + ",";
 
-            Stations stations = t.GetStations(searchCrit);
+            Stations stations = _trans.GetStations(searchCrit);
 
             for (int i = 0; i < stations.StationList.Count; i++)
             {
